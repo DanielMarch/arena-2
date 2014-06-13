@@ -32,7 +32,7 @@ function load(app, fn){
 
   app.all('*', users.bounce);
 
-  app.post('/logout', dbg, users.logout);
+  app.get('/logout', dbg, users.logout);
   app.get('/play', dbg, users.play);
 
   console.log('Routes Loaded');

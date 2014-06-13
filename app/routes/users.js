@@ -4,7 +4,7 @@ var traceur = require('traceur');
 var User = traceur.require(__dirname + '/../models/user.js');
 
 exports.register = (req, res)=>{
-  res.render('users/register', {title: 'Register User'});
+  res.render('users/register', {title: 'Arena: Register User'});
 };
 
 exports.validate = (req, res)=>{
@@ -37,7 +37,7 @@ exports.bounce = (req, res, next)=>{
 
 exports.verify = (req, res)=>{
   User.findById(req.params.id, u=>{
-    res.render('users/verify', {u:u, title: 'User Verification'});
+    res.render('users/verify', {u:u, title: 'Arena: Verify User'});
   });
 };
 
@@ -48,7 +48,7 @@ exports.password = (req, res)=>{
 };
 
 exports.login = (req, res)=>{
-  res.render('users/login', {title: 'User Login'});
+  res.render('users/login', {title: 'Arena: Login'});
 };
 
 exports.authenticate = (req, res)=>{
@@ -65,9 +65,10 @@ exports.authenticate = (req, res)=>{
 
 exports.logout = (req, res)=>{
   req.session = null;
+  delete req.session;
   res.redirect('/login');
 };
 
 exports.play = (req, res)=>{
-  res.render('users/play', {title: 'Play Arena'});
+  res.render('users/play', {title: 'Arena: Play'});
 };
